@@ -1,2 +1,2 @@
 # UnityVSyncControl
-BepInEx plugin that Controls Unity's VSync and Time.fixedDeltaTime operation.
+BepInEx plugin that controls Unity's VSync and Time.fixedDeltaTime operation.
