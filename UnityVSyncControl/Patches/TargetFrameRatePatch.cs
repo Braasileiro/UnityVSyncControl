@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using UnityEngine;
+using static Settings;
 
 namespace UnityVSyncControl.Patches;
 
@@ -13,13 +14,13 @@ internal class TargetFrameRatePatch
     {
         if (value != _targetFrameRate)
         {
-            Plugin.Log.LogInfo($"Target framerate: {value} -> {Settings.iFrameRateLimit.Value}");
+            Plugin.Log.LogInfo($"Target framerate: {value} -> {iTargetFrameRate.Value}");
 
-            value = Settings.iFrameRateLimit.Value;
+            value = iTargetFrameRate.Value;
 
             _targetFrameRate = value;
 
-            if (Settings.bSyncWithLimit.Value)
+            if (bFixedDeltaTimeSyncWithLimit.Value)
             {
                 FixedDeltaTimePatch.Update();
             }

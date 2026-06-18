@@ -12,11 +12,11 @@ internal class FixedDeltaTimePatch
         // Apply only if changed
         if (Time.fixedDeltaTime != _lastFixedDeltaTime)
         {
-            float targetRate = (iFrameRateLimit.Value > 0)
-                ? iFrameRateLimit.Value
+            float targetRate = (iTargetFrameRate.Value > 0)
+                ? iTargetFrameRate.Value
                 : Screen.currentResolution.refreshRate;
 
-            float physicsRate = GetClampedPhysicsRate(targetRate, iClampDenominator.Value);
+            float physicsRate = GetClampedPhysicsRate(targetRate, iFixedDeltaTimeClampDenominator.Value);
 
             if (physicsRate == -1)
             {

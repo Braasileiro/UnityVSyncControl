@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using UnityEngine;
+using static Settings;
 
 namespace UnityVSyncControl.Patches;
 
@@ -13,13 +14,13 @@ internal class VSyncPatch
     {
         if (value != _vSyncCount)
         {
-            Plugin.Log.LogInfo($"VSync count: {value} -> {Settings.iVsyncCount.Value}");
+            Plugin.Log.LogInfo($"VSync count: {value} -> {iVsyncCount.Value}");
 
-            value = Settings.iVsyncCount.Value;
+            value = iVsyncCount.Value;
 
             _vSyncCount = value;
 
-            if (Settings.bSyncWithLimit.Value)
+            if (bFixedDeltaTimeSyncWithLimit.Value)
             {
                 FixedDeltaTimePatch.Update();
             }

@@ -43,7 +43,7 @@ namespace UnityVSyncControl
                 QualitySettings.vSyncCount = QualitySettings.vSyncCount;
             }
 
-            if (iFrameRateLimit.Value > -1)
+            if (iTargetFrameRate.Value > -1)
             {
                 HarmonyInstance.PatchAll(typeof(Patches.TargetFrameRatePatch));
 
