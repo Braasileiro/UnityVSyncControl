@@ -9,7 +9,6 @@ internal class FixedDeltaTimePatch
 
     public static void Update()
     {
-        // Apply only if changed
         if (Time.fixedDeltaTime != _lastFixedDeltaTime)
         {
             float targetRate = (iTargetFrameRate.Value > 0)
